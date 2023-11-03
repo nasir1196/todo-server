@@ -1,10 +1,10 @@
 const express = require("express")
-const connectDB = require("./db")
+const connectDB = require("./src/db")
 const cors = require("cors");
 require("dotenv").config()
 connectDB();
 
-const noteRouter = require("./routes/note");
+const noteRouter = require("./src/routes/note");
 const app = express();
 const port = 5000;
 
