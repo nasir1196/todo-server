@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "### Using Technology * Express is node js framework for user friendly * Mongoose is MongoDB framework for connect application with mongoDB. * Dotenv using for watch time run the application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
