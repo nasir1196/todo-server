@@ -10,7 +10,7 @@ const getNoteController = async (req, res) => {
     if (!note) {
       res.send("Nothing yet note right now!!!");
     } else {
-      res.send(note).status(200);
+      res.send({note}).status(200);
     }
   } catch (error) {
     res.status(500).send(`Internal server error - ${error.message}`);
