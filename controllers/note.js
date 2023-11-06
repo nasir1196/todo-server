@@ -30,13 +30,12 @@ const postNoteController = async (req, res) => {
     });
     const saveNote = await note.save();
 
-    return res
-      .json({
-        message: "Note created successfully",
-        success: true,
-        status: 201,
-      })
-      .send(saveNote);
+    return res.json({
+      message: "Note created successfully",
+      success: true,
+      status: 201,
+      saveNote,
+    });
   } catch (error) {
     return res.status(404).send(`Don't create note - ${error.message}`);
   }
@@ -72,13 +71,12 @@ const updateNoteController = async (req, res) => {
       { $set: newNote },
       { new: true }
     );
-    return res
-      .json({
-        message: "Note Update Success",
-        status: 201,
-        success: true,
-      })
-      .send(note);
+    return res.json({
+      message: "Note Update Success",
+      status: 201,
+      success: true,
+      note,
+    });
   } catch (error) {
     return res.json({
       message: `Internal server error-${error.message}`,
@@ -100,12 +98,11 @@ const deleteNoteController = async (req, res) => {
     }
 
     note = await Note.findByIdAndDelete(req.params.id);
-    return res
-      .json({
-        message: "Note has been deleted",
-        success: true,
-      })
-      .send(note);
+    return res.json({
+      message: "Note has been deleted",
+      success: true,
+      note,
+    });
   } catch (error) {
     return res.json({
       message: `Deleted Failed - ${error.message}`,
@@ -137,13 +134,12 @@ const noteStatusController = async (req, res) => {
       { $set: newNote },
       { new: true }
     );
-    return res
-      .json({
-        message: "Note Update Success",
-        status: 201,
-        success: true,
-      })
-      .send(note);
+    return res.json({
+      message: "Note Update Success",
+      status: 201,
+      success: true,
+      note,
+    });
   } catch (error) {
     return res.json({
       message: `Internal server error-${error.message}`,
