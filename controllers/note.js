@@ -10,6 +10,21 @@ const getNoteController = async (req, res) => {
     if (!note) {
       res.send("Nothing yet note right now!!!");
     } else {
+      res.send(note).status(200);
+    }
+  } catch (error) {
+    res.status(500).send(`Internal server error - ${error.message}`);
+  }
+};
+
+//Get note using: GET: "api/note/getnotelist"
+const getNoteListController = async (req, res) => {
+  try {
+    await connectDB();
+    const note = await Note.find();
+    if (!note) {
+      res.send("Nothing yet note right now!!!");
+    } else {
       res.send({note}).status(200);
     }
   } catch (error) {
@@ -155,4 +170,5 @@ module.exports = {
   updateNoteController,
   deleteNoteController,
   noteStatusController,
+  getNoteListController
 };
